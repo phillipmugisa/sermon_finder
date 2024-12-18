@@ -8,10 +8,13 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/phillipmugisa/sermon_finder/transcriber"
+	"github.com/phillipmugisa/sermon_finder/analyzer"
 )
 
 func (server *Server) HomeHandler(c context.Context, w http.ResponseWriter, r *http.Request) error {
+
+	analyzer.AnalyzeAudio("/home/mugisa/sermon_finder/media/sermons/The Mystery Of God's will.mp3")
+
 	err := server.Render(c, w, "index", nil)
 	if err != nil {
 		return NewError("error rendering template", http.StatusInternalServerError)
@@ -35,7 +38,8 @@ func (server *Server) SermonUploadHandler(c context.Context, w http.ResponseWrit
 		defer file.Close()
 
 		// save to disk
-		destination, fileCreateErr := os.Create(filepath.Join("media/sermons", handler.Filename))
+		save_file_path := filepath.Join("media/sermons", handler.Filename)
+		destination, fileCreateErr := os.Create(save_file_path)
 		if fileCreateErr != nil {
 			return NewError("error creating destination file", http.StatusInternalServerError)
 		}
@@ -47,8 +51,8 @@ func (server *Server) SermonUploadHandler(c context.Context, w http.ResponseWrit
 			return NewError("error saving file", http.StatusInternalServerError)
 		}
 
-		// transcriber in background
-		go transcriber.Transcribe(destination)
+		// analyze in background
+		go analyzer.AnalyzeAudio(save_file_path)
 	}
 
 	data := map[string]string{

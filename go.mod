@@ -3,22 +3,20 @@ module github.com/phillipmugisa/sermon_finder
 go 1.22.0
 
 require (
-	github.com/go-audio/wav v1.1.0
 	github.com/go-chi/chi v1.5.5
+	github.com/hajimehoshi/go-mp3 v0.3.4
 	github.com/joho/godotenv v1.5.1
-	google.golang.org/genproto v0.0.0-20240429193739-8cf5692501f6
+	github.com/mjibson/go-dsp v0.0.0-20180508042940-11479a337f12
+	github.com/xuri/excelize/v2 v2.9.0
 )
 
 require (
-	cloud.google.com/go/longrunning v0.5.6 // indirect
-	cloud.google.com/go/speech v1.23.0 // indirect
-	github.com/go-audio/audio v1.0.0 // indirect
-	github.com/go-audio/riff v1.0.0 // indirect
-	golang.org/x/net v0.24.0 // indirect
-	golang.org/x/sys v0.19.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20240415180920-8c6c420018be // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240415180920-8c6c420018be // indirect
-	google.golang.org/grpc v1.63.2 // indirect
-	google.golang.org/protobuf v1.33.0 // indirect
+	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
+	github.com/richardlehane/mscfb v1.0.4 // indirect
+	github.com/richardlehane/msoleps v1.0.4 // indirect
+	github.com/xuri/efp v0.0.0-20240408161823-9ad904a10d6d // indirect
+	github.com/xuri/nfp v0.0.0-20240318013403-ab9948c2c4a7 // indirect
+	golang.org/x/crypto v0.28.0 // indirect
+	golang.org/x/net v0.30.0 // indirect
+	golang.org/x/text v0.19.0 // indirect
 )
